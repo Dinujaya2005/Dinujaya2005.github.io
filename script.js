@@ -40,7 +40,7 @@ if ("IntersectionObserver" in window) {
 (()=>{
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 const fine=window.matchMedia('(pointer:fine) and (hover:hover)');
-const selectors='.skill-card,.project-card,.about-main,.info-card,.quote-card,.journey-card,.connect-option,.connect-result,.connect-panel,.btn,.header-contact-icon,.nav-contact';
+const selectors='.skill-card,.project-card,.about-main,.info-card,.quote-card,.journey-card,.connect-option,.connect-result,.btn,.header-contact-icon,.nav-contact';
 const targets=[...document.querySelectorAll(selectors)];
 targets.forEach(el=>el.classList.add('cursor-reactive'));
 if(!fine.matches||reduced.matches)return;

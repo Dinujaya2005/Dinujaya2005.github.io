@@ -86,3 +86,11 @@ body.cursor-down .cyber-cursor-ring{width:23px;height:23px;margin:-11.5px 0 0 -1
 @keyframes intro-spin{to{transform:rotate(360deg)}}
 @keyframes intro-blink{50%{opacity:.3}}
 @media(prefers-reduced-motion:reduce){.portfolio-intro,.intro-content,.intro-logo,.intro-track span,.intro-orbit,.intro-dots{animation:none!important;transition:none!important}.intro-track span{transform:scaleX(1)}}
+
+.connect-panel::before{content:"";position:absolute;width:240px;height:240px;right:-120px;left:auto;top:-120px;inset:auto -120px auto auto;border:1px solid rgba(0,217,255,.13);border-radius:50%;background:none;pointer-events:none;opacity:1;transform:none;z-index:0}
+.connect-panel > *{position:relative;z-index:1}
+
+/* Keep profile portrait upright while retaining surrounding orbital effects. */
+.hero-core:has(.hero-profile-photo){transform:none!important;rotate:0deg!important}
+.hero-profile-photo{transform:none!important;rotate:0deg!important;object-fit:cover;object-position:center 26%}
+.hero-art:hover .hero-core:has(.hero-profile-photo){transform:none!important}
