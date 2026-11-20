@@ -60,3 +60,29 @@ body.cursor-down .cyber-cursor-ring{width:23px;height:23px;margin:-11.5px 0 0 -1
 .brand-logo-frame{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:88px;height:64px;padding:4px 7px;border-radius:13px;background:#f7faff;border:1px solid rgba(112,175,255,.45);box-shadow:0 0 18px rgba(23,107,255,.14)}
 @media(max-width:760px){.brand-logo-frame{width:66px;height:51px;padding:4px}.brand-logo{width:58px;height:44px}.brand{gap:8px}}
 @media(max-width:390px){.brand-logo-frame{width:54px;height:43px;padding:3px}.brand-logo{width:48px;height:37px}}
+
+
+/* Portfolio entrance animation */
+.portfolio-intro{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#12264b 0%,#080b16 55%,#050713 100%);color:#f4f7ff;transition:opacity .65s ease,visibility .65s ease}
+.portfolio-intro.intro-finished{opacity:0;visibility:hidden;pointer-events:none}
+.intro-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px;width:min(92vw,540px);animation:intro-rise .85s ease both}
+.intro-logo{width:clamp(90px,14vw,135px);height:clamp(90px,14vw,135px);object-fit:contain;border-radius:22px;filter:drop-shadow(0 0 26px #00d9ff65);animation:intro-logo-pulse 2.1s ease-in-out infinite alternate}
+.intro-eyebrow{margin:26px 0 12px;letter-spacing:.24em;font-size:11px;font-weight:700;color:#00d9ff}
+.intro-content h2{font-family:'DM Sans',sans-serif;font-size:clamp(27px,5vw,46px);line-height:1.15;margin:0;font-weight:700;letter-spacing:-.04em}
+.intro-content h2 span{color:#5c9bff}
+.intro-tagline{color:#aebcd7;font-size:clamp(13px,2.6vw,16px);margin:14px 0 28px}
+.intro-track{width:min(100%,300px);height:3px;border-radius:8px;background:#23314c;overflow:hidden}
+.intro-track span{display:block;width:100%;height:100%;background:linear-gradient(90deg,#176bff,#00d9ff,#8b5cf6);transform:scaleX(0);transform-origin:left;animation:intro-progress 4.5s ease-in-out forwards;box-shadow:0 0 16px #00d9ff}
+.intro-loading{font-size:10px;letter-spacing:.18em;color:#8c9cb9;margin:13px 0 20px}
+.intro-dots{display:inline-block;animation:intro-blink .7s steps(2,end) infinite}
+.intro-skip{cursor:pointer;color:#c5d7f8;border:1px solid #45648a;border-radius:999px;background:#13213a;padding:9px 18px;font:inherit;font-size:12px;transition:background .2s,border-color .2s}
+.intro-skip:hover,.intro-skip:focus-visible{background:#1d3560;border-color:#00d9ff;outline-offset:3px}
+.intro-orbit{position:absolute;width:min(72vw,600px);aspect-ratio:1;border-radius:50%;border:1px solid #176bff29;box-shadow:0 0 65px #176bff16;animation:intro-spin 16s linear infinite}
+.intro-orbit::after{content:'';position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:#00d9ff;box-shadow:0 0 18px #00d9ff}
+.intro-orbit-two{width:min(94vw,800px);border-style:dashed;border-color:#8b5cf625;animation-duration:24s;animation-direction:reverse}
+@keyframes intro-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes intro-logo-pulse{to{filter:drop-shadow(0 0 45px #00d9ffb0);transform:scale(1.035)}}
+@keyframes intro-progress{to{transform:scaleX(1)}}
+@keyframes intro-spin{to{transform:rotate(360deg)}}
+@keyframes intro-blink{50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.portfolio-intro,.intro-content,.intro-logo,.intro-track span,.intro-orbit,.intro-dots{animation:none!important;transition:none!important}.intro-track span{transform:scaleX(1)}}
