@@ -65,5 +65,13 @@ let finished=false;
 const finish=()=>{if(finished)return;finished=true;intro.classList.add('intro-finished');intro.setAttribute('aria-hidden','true');setTimeout(()=>intro.remove(),700)};
 document.getElementById('introSkip')?.addEventListener('click',finish);
 try{if(sessionStorage.getItem('dinujayaIntroSeen')==='1'||reduced){finish();return}sessionStorage.setItem('dinujayaIntroSeen','1')}catch(e){}
-setTimeout(finish,5000);
+setTimeout(finish,3000);
 })();
+
+const backToTop = document.querySelector(".back-top");
+if (backToTop) {
+  backToTop.addEventListener("click", event => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  });
+}
