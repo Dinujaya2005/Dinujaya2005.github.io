@@ -119,3 +119,7 @@ body.cursor-down .cyber-cursor-ring{width:23px;height:23px;margin:-11.5px 0 0 -1
 .footer .footer-brand{display:inline-flex;align-items:center;gap:12px;min-width:0;text-decoration:none}
 .footer .footer-brand-name{color:#f4f7ff;font-family:'DM Sans',Arial,sans-serif;font-size:16px;font-weight:700;line-height:1.3;white-space:nowrap}
 @media(max-width:480px){.footer .footer-brand-name{font-size:13px}.footer .footer-brand{gap:7px}}
+
+/* Consistent intro monogram across navigation and footer */
+.brand>.brand-logo,.footer-brand img{object-fit:contain!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 0 9px rgba(0,217,255,.16))!important}
+.footer .footer-brand-name{display:inline-block!important;color:#f4f7ff!important}
