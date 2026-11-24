@@ -44,16 +44,7 @@ const selectors='.skill-card,.project-card,.about-main,.info-card,.quote-card,.j
 const targets=[...document.querySelectorAll(selectors)];
 targets.forEach(el=>el.classList.add('cursor-reactive'));
 if(!fine.matches||reduced.matches)return;
-const dot=document.createElement('div');const ring=document.createElement('div');
-dot.className='cyber-cursor-dot';ring.className='cyber-cursor-ring';dot.setAttribute('aria-hidden','true');ring.setAttribute('aria-hidden','true');document.body.append(dot,ring);
-let x=-100,y=-100,rx=-100,ry=-100,raf=0,active=false;
-const tick=()=>{rx+=(x-rx)*.2;ry+=(y-ry)*.2;dot.style.transform=`translate3d(${x}px,${y}px,0)`;ring.style.transform=`translate3d(${rx}px,${ry}px,0)`;if(Math.abs(x-rx)+Math.abs(y-ry)>.2)raf=requestAnimationFrame(tick);else raf=0};
-const update=e=>{x=e.clientX;y=e.clientY;if(!active){rx=x;ry=y;active=true;document.body.classList.add('cursor-active')}if(!raf)raf=requestAnimationFrame(tick);const target=e.target.closest('.cursor-reactive');if(target){const r=target.getBoundingClientRect();target.style.setProperty('--pointer-x',`${e.clientX-r.left}px`);target.style.setProperty('--pointer-y',`${e.clientY-r.top}px`)}document.body.classList.toggle('cursor-hover',!!e.target.closest('a,button,[role="button"]'))};
-document.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')update(e)},{passive:true});
-document.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')document.body.classList.add('cursor-down')});
-document.addEventListener('pointerup',()=>document.body.classList.remove('cursor-down'));
-document.addEventListener('pointerout',e=>{if(!e.relatedTarget){document.body.classList.remove('cursor-active','cursor-hover');active=false}});
-window.addEventListener('blur',()=>{document.body.classList.remove('cursor-active','cursor-hover');active=false});
+document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const target=e.target.closest('.cursor-reactive');if(target){const r=target.getBoundingClientRect();target.style.setProperty('--pointer-x',`${e.clientX-r.left}px`);target.style.setProperty('--pointer-y',`${e.clientY-r.top}px`)}},{passive:true});
 })();
 
 
