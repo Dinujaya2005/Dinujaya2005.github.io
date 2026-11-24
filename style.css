@@ -131,3 +131,8 @@ a:hover .link-arrow-icon,button:hover .link-arrow-icon{transform:translate(2px,-
 
 @media(pointer:coarse),(hover:none){.cursor-reactive:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.cursor-reactive,.cursor-reactive::before,.cursor-reactive .skill-track span{transition:none!important}.cursor-reactive:hover{transform:none;box-shadow:none}}
+
+/* Minimal section labels */
+.section-number{display:inline-flex;align-items:center;gap:12px;letter-spacing:.18em;}
+.section-number::before{content:"";display:inline-block;width:36px;height:3px;border-radius:3px;background:linear-gradient(90deg,#8b5cf6,#00d9ff);flex-shrink:0;}
+.visual-corner{letter-spacing:.14em;}
